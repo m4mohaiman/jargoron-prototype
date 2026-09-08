@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LogOut, ChevronDown } from "lucide-react";
-import { ROLE_LABEL_BN, type User } from "@/lib/auth";
+import type { User } from "@/lib/auth";
 
 function initials(name: string) {
   return name

@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap");
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-paper: #eff3ee;
+  --color-paper-dim: #e4e9e2;
+  --color-ink: #16241f;
+  --color-ink-soft: #45564e;
+  --color-forest: #1f5c52;
+  --color-forest-dark: #143d36;
+  --color-dawn: #e0a72e;
+  --color-dawn-dim: #f3d998;
+  --color-clay: #b54a3d;
+  --color-line: #d3dbd0;
+  --color-navy: #1c3f6e;
+  --color-navy-dark: #17335a;
+
+  --font-display: "Fraunces", ui-serif, serif;
+  --font-sans: "Manrope", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-bangla: "Hind Siliguri", "Manrope", ui-sans-serif, sans-serif;
+}
+
+.dark {
+  --color-paper: #101915;
+  --color-paper-dim: #17211c;
+  --color-ink: #e8ede9;
+  --color-ink-soft: #a7b6ae;
+  --color-forest: #4fae9d;
+  --color-forest-dark: #2c7568;
+  --color-dawn: #e0a72e;
+  --color-dawn-dim: #4a3c1c;
+  --color-clay: #d97a68;
+  --color-line: #253029;
+  --color-navy: #6d95c9;
+  --color-navy-dark: #3d5c86;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-bangla);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* horizon motif: a soft rising-sun gradient line used across the app */
+.horizon-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-dawn) 20%, var(--color-forest) 80%, transparent);
+}
